@@ -9,3 +9,6 @@ npm i
 ```
 npm run dev
 ```
+
+## other
+- gsap branch : gsap example

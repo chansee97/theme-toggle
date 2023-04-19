@@ -3,7 +3,6 @@
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
-  
 }
 
 /* 进入dark模式和退出dark模式时，两个图像的位置顺序正好相反 */
