@@ -1,40 +1,40 @@
 <script setup>
-const toggleTheme = (event) => {
-    const x = event.clientX;
-    const y = event.clientY;
+  import gsap from 'gsap'
+  function toggleTheme(event) {
+    const x = event.clientX
+    const y = event.clientY
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y)
-    );
+    )
 
-    let isDark;
+    let isDark
 
     const transition = document.startViewTransition(() => {
-      const root = document.documentElement;
-      isDark = root.classList.contains("dark");
-      root.classList.remove(isDark ? "dark" : "light");
-      root.classList.add(isDark ? "light" : "dark");
-    });
+      const root = document.documentElement
+      isDark = root.classList.contains('dark')
+      root.classList.remove(isDark ? 'dark' : 'light')
+      root.classList.add(isDark ? 'light' : 'dark')
+    })
 
     transition.ready.then(() => {
       const clipPath = [
         `circle(0px at ${x}px ${y}px)`,
         `circle(${endRadius}px at ${x}px ${y}px)`,
-      ];
-      document.documentElement.animate(
+      ]
+      gsap.fromTo(
+        document.documentElement,
         {
-          clipPath: isDark ? [...clipPath].reverse() : clipPath,
+          '--view-transition-clip-path': isDark ? clipPath[1] : clipPath[0],
+          ease: 'power2.in',
         },
         {
-          duration: 500,
-          easing: "ease-in",
-          pseudoElement: isDark
-            ? "::view-transition-old(root)"
-            : "::view-transition-new(root)",
+          '--view-transition-clip-path': isDark ? clipPath[0] : clipPath[1],
+          ease: 'power2.out',
         }
-      );
-    });
-  };
+      )
+    })
+  }
 </script>
 
 <template>

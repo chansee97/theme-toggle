@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@unocss/reset": "^0.51.4",
+    "gsap": "^3.11.5",
     "unocss": "^0.51.4",
     "vue": "^3.2.47"
   },

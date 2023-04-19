@@ -4,6 +4,9 @@ dependencies:
   '@unocss/reset':
     specifier: ^0.51.4
     version: 0.51.4
+  gsap:
+    specifier: ^3.11.5
+    version: 3.11.5
   unocss:
     specifier: ^0.51.4
     version: 0.51.4(postcss@8.4.22)(vite@4.2.0)
@@ -801,6 +804,10 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       is-glob: 4.0.3
+    dev: false
+
+  /gsap@3.11.5:
+    resolution: {integrity: sha512-Q89nKCLgoX5xUjznh9LcaIUkz54k1voNucT1Rpf9SJNFIQznBwFqt5qUUQbeVInFyN/n18OUJkpeI6CNEDt74w==}
     dev: false
 
   /gzip-size@6.0.0:
